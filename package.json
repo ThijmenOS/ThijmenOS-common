@@ -1,10 +1,14 @@
 {
   "name": "@thijmenos/common",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "the common interfaces and methods for the javascriptOS projects",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
