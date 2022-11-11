@@ -1,16 +1,31 @@
 {
-  "name": "javascriptos-common",
-  "version": "1.0.1",
-  "description": "the interfaces and types that will be used both in client and server",
-  "main": "index.js",
+  "name": "@thijmenos/common",
+  "version": "2.0.1",
+  "description": "the common interfaces and methods for the javascriptOS projects",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/"
+  ],
   "scripts": {
     "build": "tsc"
   },
-  "keywords": [],
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThijmenOS/ThijmenOS-common.git"
+  },
+  "keywords": [
+    "javascriptos",
+    "thijmenos"
+  ],
+  "author": "Thijmen Brand",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ThijmenOS/ThijmenOS-common/issues"
+  },
+  "homepage": "https://github.com/ThijmenOS/ThijmenOS-common#readme",
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.42.0",
+    "@thijmenos/eslint-config": "^1.0.0",
     "typescript": "^4.8.4"
   }
 }
