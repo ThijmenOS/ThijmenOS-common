@@ -49,3 +49,8 @@ export type OSSettings = {
   apps: AppSettings;
   accounts: AccountSettings;
 };
+
+export enum ClassOperation {
+  ADD,
+  REMOVE,
+}
