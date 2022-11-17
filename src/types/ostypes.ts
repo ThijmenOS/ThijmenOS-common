@@ -15,3 +15,14 @@ export type OSSettings = {
   apps: AppSettings;
   accounts: AccountSettings;
 };
+
+export type AppMetaData = {
+  name: string;
+  description: string;
+  category: string;
+  autostart: boolean;
+  version: string;
+  icon: string;
+  exelocation: string;
+  mimeTypes: Array<MimeTypes>;
+};
