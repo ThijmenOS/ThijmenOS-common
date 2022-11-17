@@ -7,24 +7,28 @@ export enum ApplicationMetaDataFields {
 }
 
 export interface IconMetadataShape {
-  title: string;
-  iconLocation?: string;
+  name: string;
+  icon?: string;
   exeLocation: string;
 }
 
 export interface ApplicationMetaData extends IconMetadataShape {
   applicationIdentifier: string;
   mimeTypes: Array<string>;
+  version: string;
+  autostart: boolean;
+  category: string;
+  description: string;
 }
 
 export class IconMetadata implements IconMetadataShape {
-  title: string;
-  iconLocation?: string;
+  name: string;
+  icon?: string;
   exeLocation: string;
 
   constructor(props: IconMetadataShape) {
-    this.title = props.title;
-    this.iconLocation = props.iconLocation;
+    this.name = props.name;
+    this.icon = props.icon;
     this.exeLocation = props.exeLocation;
   }
 }
