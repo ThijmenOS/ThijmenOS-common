@@ -5,6 +5,9 @@ on: workflow_call
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: read
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -14,7 +17,7 @@ jobs:
           scope: "@thijmenos"
       - run: npm install
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GH_REGISTRY_PACKAGES }}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: npm run build
 
   test:
@@ -29,7 +32,7 @@ jobs:
           scope: "@thijmenos"
       - run: npm install
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GH_REGISTRY_PACKAGES }}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: npm run test
 
   publish-gpr:
