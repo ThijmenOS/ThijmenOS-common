@@ -10,7 +10,11 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@thijmenos'
       - run: npm ci
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GH_REGISTRY_PACKAGES }}
       - run: npm run build
 
   test:
@@ -21,7 +25,11 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@thijmenos'
       - run: npm ci
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GH_REGISTRY_PACKAGES }}
       - run: npm run test
 
   publish-gpr:
@@ -36,11 +44,15 @@ jobs:
         with:
           node-version: 16
           registry-url: https://npm.pkg.github.com/
-      - run: git config user.email "thijmen@ik.nu"
-      - run: git config user.name "Thijmen Brand"
+          scope: '@thijmenos'
       - run: npm ci
-      - run: npm version ${{ github.event.release.tag_name }}
-      - run: npm run build
+      - run: npm run build --if-present
+      - run: |
+          git config user.name "Thijmen Brand"
+          git config user.email "thijmen@ik.nu"
+          npm version patch
+          git push
+          git push --tags
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
