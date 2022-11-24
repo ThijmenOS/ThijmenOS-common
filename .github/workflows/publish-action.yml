@@ -12,7 +12,7 @@ jobs:
           node-version: 16
           registry-url: "https://npm.pkg.github.com"
           scope: "@thijmenos"
-      - run: npm ci
+      - run: npm install
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GH_REGISTRY_PACKAGES }}
       - run: npm run build
@@ -27,7 +27,7 @@ jobs:
           node-version: 16
           registry-url: "https://npm.pkg.github.com"
           scope: "@thijmenos"
-      - run: npm ci
+      - run: npm install
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GH_REGISTRY_PACKAGES }}
       - run: npm run test
