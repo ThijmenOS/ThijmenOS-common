@@ -10,8 +10,10 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
+      - run: cat .npmrc
       - run: npm install
         env:
+          CI: true
           NPM_AUTH_TOKEN: ${{ secrets.GH_REGISTRY_PACKAGES }}
       - run: npm run build
 
