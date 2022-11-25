@@ -13,21 +13,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ThijmenOS/ThijmenOS-common.git"
-  },
-  "publishConfig": {
-    "@ThijmenOS:registry": "https://npm.pkg.github.com"
+    "url": "git+https://github.com/thijmenos/thijmenos-common.git"
   },
   "keywords": [
     "javascriptos",
-    "thijmenos"
+    "thijmen-os"
   ],
   "author": "Thijmen Brand",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ThijmenOS/ThijmenOS-common/issues"
+    "url": "https://github.com/thijmenos/thijmenos-common/issues"
   },
-  "homepage": "https://github.com/ThijmenOS/ThijmenOS-common#readme",
+  "homepage": "https://github.com/thijmenos/thijmenos-common#readme",
   "devDependencies": {
     "@types/jquery": "^2.0.47",
     "@types/jest": "^29.2.3",
