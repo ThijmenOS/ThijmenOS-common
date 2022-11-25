@@ -10,8 +10,8 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-      - run: cat .npmrc
-      - run: npm install
+      - run: echo "//npm.pkg.github.com:_authToken=${{ secrets.GH_REGISTRY_PACKAGES }}" > ~/.npmrc
+      - run: npm ci
         env:
           CI: true
           NPM_AUTH_TOKEN: ${{ secrets.GH_REGISTRY_PACKAGES }}
