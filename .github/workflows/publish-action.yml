@@ -11,7 +11,7 @@ jobs:
         with:
           node-version: 16
       - run: |
-          echo "//npm.pkg.github.com/:_authToken="${{ secrets.GH_REGISTRY_PACKAGES }} > .npmrc
+          echo "//npm.pkg.github.com/:_authToken=\t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" > .npmrc
           echo "@thijmenos:registry=https://npm.pkg.github.com/" >> .npmrc
       - run: npm ci
         env:
