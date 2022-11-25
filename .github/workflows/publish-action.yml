@@ -5,22 +5,17 @@ on: workflow_call
 jobs:
   build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: read
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: 16
+      - run: npm install
+        with:
           registry-url: "https://npm.pkg.github.com"
           scope: "@thijmenos"
-      - run: |
-          echo "@thijmenos:registry=https://npm.pkg.github.com/" > .npmrc
-          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GH_REGISTRY_PACKAGES }}" >> .npmrc
-      - run: npm install
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GH_REGISTRY_PACKAGES }}
+          NPM_AUTH_TOKEN: ${{ secrets.GH_REGISTRY_PACKAGES }}
       - run: npm run build
 
   test:
@@ -31,14 +26,12 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
+      - run: npm install
+        with:
           registry-url: "https://npm.pkg.github.com"
           scope: "@thijmenos"
-      - run: |
-          echo "@thijmenos:registry=https://npm.pkg.github.com/" > .npmrc
-          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GH_REGISTRY_PACKAGES }}" >> .npmrc
-      - run: npm install
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GH_REGISTRY_PACKAGES }}
+          NPM_AUTH_TOKEN: ${{ secrets.GH_REGISTRY_PACKAGES }}
       - run: npm run test
 
   publish-gpr:
