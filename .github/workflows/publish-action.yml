@@ -20,7 +20,7 @@ jobs:
           echo "//npm.pkg.github.com/:_authToken=${{ secrets.GH_REGISTRY_PACKAGES }}" >> .npmrc
       - run: npm install
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.GH_REGISTRY_PACKAGES }}
       - run: npm run build
 
   test:
@@ -33,9 +33,12 @@ jobs:
           node-version: 16
           registry-url: "https://npm.pkg.github.com"
           scope: "@thijmenos"
+      - run: |
+          echo "@thijmenos:registry=https://npm.pkg.github.com/" > .npmrc
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GH_REGISTRY_PACKAGES }}" >> .npmrc
       - run: npm install
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.GH_REGISTRY_PACKAGES }}
       - run: npm run test
 
   publish-gpr:
