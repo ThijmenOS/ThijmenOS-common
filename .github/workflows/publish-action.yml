@@ -11,9 +11,6 @@ jobs:
         with:
           node-version: 16
       - run: npm install
-        with:
-          registry-url: "https://npm.pkg.github.com"
-          scope: "@thijmenos"
         env:
           NPM_AUTH_TOKEN: ${{ secrets.GH_REGISTRY_PACKAGES }}
       - run: npm run build
