@@ -10,9 +10,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-      - run:
-          name: Set NPM
-          command: |
+      - run: |
             echo "//npm.pkg.github.com/:_authToken=${{ secrets.GH_REGISTRY_PACKAGES }}" > .npmrc
             echo "@thijmenos:registry=https://npm.pkg.github.com/" >> .npmrc
       - run: npm ci
