@@ -3,7 +3,7 @@ name: Develop package
 on:
   pull_request:
     types: [opened, edited, reopened]
-  workflow_call
+  workflow_call:
 
 jobs:
   build:
