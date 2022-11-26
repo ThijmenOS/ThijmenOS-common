@@ -14,17 +14,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-        with:
-          ref: ${{ github.ref_name }}
       - uses: actions/setup-node@v3
         with:
           node-version: "16.x"
           registry-url: "https://registry.npmjs.org"
       - run: npm ci
-      - run: git config --global user.name "Thijmen Brand"
-      - run: git config --global user.email "Thijmen@ik.nu"
-      - run: npm version patch
-      - run: git push origin
+      - run: npm version ${{ github.event.release.tag_name }}
       - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
