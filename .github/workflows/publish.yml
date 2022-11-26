@@ -7,7 +7,7 @@ on:
 
 jobs:
   develop:
-    uses: thijmen-os/thijmenos-common/.github/workflows/develop.yml@production
+    uses: thijmenos/thijmenos-common/.github/workflows/develop.yml@production
 
   publish:
     needs: develop
