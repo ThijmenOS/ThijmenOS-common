@@ -19,10 +19,9 @@ jobs:
           node-version: "16.x"
           registry-url: "https://registry.npmjs.org"
       - run: npm ci
-      - run: |
-        git config --global user.name "Thijmen Brand"
-        git config --global user.email "Thijmen@ik.nu"
-        npm version patch
+      - run: git config --global user.name "Thijmen Brand"
+      - run: git config --global user.email "Thijmen@ik.nu"
+      - run: npm version patch
       - run: git push
       - run: npm publish --access public
         env:
