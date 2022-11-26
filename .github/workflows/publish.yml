@@ -26,8 +26,7 @@ jobs:
       - run: npm version patch
       - run: VERSION=$(node -p "require('./package.json').version")
       - run: git tag ${VERSION}
-      - run: git push "https://$GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY.git" --follow-tags
-      - run: git push "https://$GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY.git" --tags
+      - run: git push --tag
       - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
