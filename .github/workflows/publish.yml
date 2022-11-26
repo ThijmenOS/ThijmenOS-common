@@ -3,14 +3,14 @@ name: Publish package
 on:
   release:
     types: [created]
-  workflow_call
+  workflow_call:
 
 jobs:
   develop:
     uses: thijmen-os/thijmenos-common/.github/workflows/develop.yml@production
 
   publish:
-    needs: test
+    needs: develop
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
