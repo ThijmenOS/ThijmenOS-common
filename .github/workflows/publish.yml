@@ -5,5 +5,19 @@ on:
     types: [created]
 
 jobs:
+  develop:
+    uses: thijmen-os/thijmenos-common/.github/workflows/develop.yml@production
+
   publish:
-    uses: thijmenos/thijmenos-common/.github/workflows/publish-action.yml@production
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "16.x"
+          registry-url: "https://registry.npmjs.org"
+      - run: npm ci
+      - run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
