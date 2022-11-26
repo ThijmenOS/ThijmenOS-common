@@ -19,6 +19,8 @@ jobs:
           node-version: "16.x"
           registry-url: "https://registry.npmjs.org"
       - run: npm ci
+      - run: git config --global user.name "Thijmen Brand"
+      - run: git config --global user.email "Thijmen@ik.nu"
       - run: npm version ${{ github.event.release.tag_name }}
       - run: npm publish --access public
         env:
