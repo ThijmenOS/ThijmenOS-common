@@ -25,8 +25,7 @@ jobs:
       - run: git config --global user.email "Thijmen@ik.nu"
       - run: npm version patch
       - run: VERSION=$(node -p "require('./package.json').version")
-      - run: git tag ${VERSION}
-      - run: git push --tag
+      - run: git push origin
       - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
