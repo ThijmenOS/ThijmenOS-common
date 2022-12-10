@@ -4,6 +4,7 @@ export enum ApplicationMetaDataFields {
   iconLocation = "iconLocation",
   exeLocation = "exeLocation",
   mimeTypes = "mimeTypes",
+  permissions = "permissions",
 }
 
 export interface IconMetadataShape {
