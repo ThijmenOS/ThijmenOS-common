@@ -1,3 +1,6 @@
+import { Permissions } from "../settings";
+import { MimeTypes } from "./filesystemtypes";
+
 export enum ApplicationMetaDataFields {
   applicationIdentifier = "applicationIdentifier",
   title = "title",
@@ -15,11 +18,11 @@ export interface IconMetadataShape {
 
 export interface ApplicationMetaData extends IconMetadataShape {
   applicationIdentifier: string;
-  mimeTypes: Array<string>;
-  version: string;
-  autostart: boolean;
-  category: string;
-  description: string;
+  name: string;
+  iconLocation: string;
+  exeLocation: string;
+  mimeTypes: Array<MimeTypes>;
+  permissions: Array<Permissions>;
 }
 
 export class IconMetadata implements IconMetadataShape {
