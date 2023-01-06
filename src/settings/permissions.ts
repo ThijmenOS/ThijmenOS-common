@@ -1,4 +1,4 @@
-export enum permissions {
+export enum Permissions {
   fileSystem,
   backgroundServices,
   notifications,
