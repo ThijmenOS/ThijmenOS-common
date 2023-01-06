@@ -8,7 +8,6 @@ export enum ApplicationMetaDataFields {
 }
 
 export interface IconMetadataShape {
-  id: string;
   name: string;
   icon?: string;
   exeLocation: string;
@@ -24,13 +23,11 @@ export interface ApplicationMetaData extends IconMetadataShape {
 }
 
 export class IconMetadata implements IconMetadataShape {
-  id: string;
   name: string;
   icon?: string;
   exeLocation: string;
 
   constructor(props: IconMetadataShape) {
-    this.id = props.id;
     this.name = props.name;
     this.icon = props.icon;
     this.exeLocation = props.exeLocation;
