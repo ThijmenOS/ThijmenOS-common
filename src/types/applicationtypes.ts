@@ -14,6 +14,7 @@ export interface IconMetadataShape {
   name: string;
   icon?: string;
   exeLocation: string;
+  mimeType: MimeTypes;
 }
 
 export interface ApplicationMetaData extends IconMetadataShape {
@@ -29,11 +30,13 @@ export class IconMetadata implements IconMetadataShape {
   name: string;
   icon?: string;
   exeLocation: string;
+  mimeType: MimeTypes;
 
   constructor(props: IconMetadataShape) {
     this.name = props.name;
     this.icon = props.icon;
     this.exeLocation = props.exeLocation;
+    this.mimeType = props.mimeType;
   }
 }
 
