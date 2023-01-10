@@ -6,3 +6,8 @@ export enum Permissions {
   externalRequests,
   applicationContact,
 }
+
+export interface PermissionRequestDto {
+  applicationId: string;
+  permission: Permissions;
+}
