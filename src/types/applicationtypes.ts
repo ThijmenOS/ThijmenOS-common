@@ -1,6 +1,8 @@
 import { Permissions } from "../settings";
 import { MimeTypes } from "./filesystemtypes";
 
+export type Event<T> = { eventName: string; eventSender: string; eventData: T };
+
 export enum ApplicationMetaDataFields {
   applicationIdentifier = "applicationIdentifier",
   title = "title",
