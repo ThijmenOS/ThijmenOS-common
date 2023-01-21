@@ -7,7 +7,14 @@ export type AppSettings = {
   installedApps: Array<ApplicationMetaData>;
   defaultApps: { [key in MimeTypes]: string };
 };
-export type AccountSettings = any;
+export type User = {
+  userId: string;
+  username: string;
+  email: string;
+  password: string;
+  pincode?: string;
+};
+export type AccountSettings = Array<User>;
 
 export type OSSettings = {
   system: SystemSettings;
