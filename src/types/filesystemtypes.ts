@@ -13,4 +13,5 @@ export type Path = string;
 export enum MimeTypes {
   txt = "txt",
   thijm = "thijm",
+  dir = "dir",
 }
