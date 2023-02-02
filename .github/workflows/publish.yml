@@ -23,7 +23,7 @@ jobs:
       - run: git config --global user.name "Thijmen Brand"
       - run: git config --global user.email "Thijmen@ik.nu"
       - name: bump version
-        run: npm version ${{ github.event.release.tag_name }}
+        run: npm version patch
       - name: push to repo
         run: |
           git commit -a -m "version bump"
