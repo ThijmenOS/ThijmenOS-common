@@ -27,9 +27,9 @@ export const AccessObjectError = "####";
 export interface AccessObject {
   path: string;
   userId: string;
-  userAccess: Map<Access, boolean>;
+  userAccess: AccessMap;
   groupId: string;
-  groupAccess: Map<Access, boolean>;
+  groupAccess: AccessMap;
 }
 
 export type AccessObjectMap = { [key in string]: AccessObject };
