@@ -25,9 +25,7 @@ jobs:
       - name: bump version
         run: npm version patch
       - name: push to repo
-        run: |
-          git commit -a -m "version bump"
-          git push
+        run: git push
       - run: npm run build
       - name: publish to npm
         run: npm publish --access public
