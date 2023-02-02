@@ -16,7 +16,7 @@ export enum MimeTypes {
   dir = "dir",
 }
 
-enum Access {
+export enum Access {
   r = "r",
   w = "w",
   x = "x",
