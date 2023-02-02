@@ -22,6 +22,8 @@ export enum Access {
   x = "x",
 }
 
+export const AccessObjectError = "####";
+
 export interface AccessObject {
   path: string;
   userId: string;
@@ -29,3 +31,6 @@ export interface AccessObject {
   groupId: string;
   groupAccess: Map<Access, boolean>;
 }
+
+export type AccessObjectMap = { [key in string]: AccessObject };
+export type AccessMap = { [key in Access]: boolean };
