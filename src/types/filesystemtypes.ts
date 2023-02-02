@@ -15,3 +15,17 @@ export enum MimeTypes {
   thijm = "thijm",
   dir = "dir",
 }
+
+enum Access {
+  r = "r",
+  w = "w",
+  x = "x",
+}
+
+export interface AccessObject {
+  path: string;
+  userId: string;
+  userAccess: Map<Access, boolean>;
+  groupId: string;
+  groupAccess: Map<Access, boolean>;
+}
