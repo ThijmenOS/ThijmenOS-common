@@ -22,8 +22,14 @@ jobs:
       - run: npm install
       - run: git config --global user.name "Thijmen Brand"
       - run: git config --global user.email "Thijmen@ik.nu"
-      - run: npm version ${{ github.event.release.tag_name }}
+      - name: bump version
+        run: npm version ${{ github.event.release.tag_name }}
+      - name: push to repo
+        run: |
+          git commit -a -m "version bump"
+          git push
       - run: npm run build
-      - run: npm publish --access public
+      - name: publish to npm
+        run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
