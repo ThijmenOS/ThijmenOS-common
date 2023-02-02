@@ -1,9 +1,8 @@
 name: Publish package
 
 on:
-  push:
-    branches:
-      - 'production'
+  release:
+    types: [created]
   workflow_call:
 
 jobs:
@@ -19,15 +18,10 @@ jobs:
         with:
           node-version: "16.x"
           registry-url: "https://registry.npmjs.org"
-      - run: npm install
+      - run: npm ci
       - run: git config --global user.name "Thijmen Brand"
       - run: git config --global user.email "Thijmen@ik.nu"
-      - name: bump version
-        run: npm version patch
-      - name: push to repo
-        run: git push
-      - run: npm run build
-      - name: publish to npm
-        run: npm publish --access public
+      - run: npm version ${{ github.event.release.tag_name }}
+      - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
