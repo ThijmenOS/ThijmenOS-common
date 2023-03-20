@@ -37,7 +37,7 @@ export class ApplicationMetaData implements ApplicationMetaDataShape {
   public mimeType: MimeTypes;
   public mimeTypes: Array<MimeTypes>;
   public permissions: Array<Permissions>;
-  public singleton: boolean = false;
+  public singleton = false;
 
   public constructor(init: ApplicationMetaDataShape) {
     Object.assign(this, init);
