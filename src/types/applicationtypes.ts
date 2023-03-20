@@ -19,13 +19,29 @@ export interface IconMetadataShape {
   mimeType: MimeTypes;
 }
 
-export interface ApplicationMetaData extends IconMetadataShape {
+export interface ApplicationMetaDataShape extends IconMetadataShape {
   applicationIdentifier: string;
   name: string;
   iconLocation: string;
   exeLocation: string;
   mimeTypes: Array<MimeTypes>;
   permissions: Array<Permissions>;
+  singleton?: boolean;
+}
+
+export class ApplicationMetaData implements ApplicationMetaDataShape {
+  public applicationIdentifier: string;
+  public name: string;
+  public iconLocation: string;
+  public exeLocation: string;
+  public mimeType: MimeTypes;
+  public mimeTypes: Array<MimeTypes>;
+  public permissions: Array<Permissions>;
+  public singleton: boolean = false;
+
+  public constructor(init: ApplicationMetaDataShape) {
+    Object.assign(this, init);
+  }
 }
 
 export class IconMetadata implements IconMetadataShape {
