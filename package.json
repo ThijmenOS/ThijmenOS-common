@@ -10,7 +10,8 @@
   "scripts": {
     "build": "tsc",
     "test": "jest --passWithNoTests",
-    "lint": "npx eslint src"
+    "lint": "npx eslint src",
+    "prepublish": "npm run build && npm link"
   },
   "repository": {
     "type": "git",
