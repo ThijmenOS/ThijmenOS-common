@@ -11,7 +11,8 @@
     "build": "tsc",
     "test": "jest --passWithNoTests",
     "lint": "npx eslint src",
-    "prepublish": "npm run build && npm link"
+    "prepublish": "npm run build && npm link",
+    "publish": "git add * && git commit -m 'publish' && git push origin && npm run build && npm version patch && npm publish --access public"
   },
   "repository": {
     "type": "git",

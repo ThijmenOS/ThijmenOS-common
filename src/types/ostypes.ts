@@ -1,44 +1,50 @@
 import { ApplicationMetaData } from "./applicationtypes";
 import { MimeTypes } from "./filesystemtypes";
 
-export type User = {
+export interface UserDetails {
   userId: string;
   username: string;
   email: string;
+}
+
+export interface UserAuthentication {
   password: string;
   pincode?: string;
+}
+
+export interface User extends UserDetails, UserAuthentication {
   preferences: Personal;
-};
+}
 
 export type Sound = {
   volume: number;
-  inputDevice: any;
-  outputDevice: any;
-  volumeMixer: any;
+  inputDevice: unknown;
+  outputDevice: unknown;
+  volumeMixer: unknown;
 };
 
-export type Storage = any;
+export type Storage = unknown;
 
-export type Bluetooth = any;
+export type Bluetooth = unknown;
 
-export type Network = any;
+export type Network = unknown;
 
 export type Personal = {
   background: string;
-  colors: any;
-  themes: any;
-  lockscreen: any;
-  startMenu: any;
-  fonts: any;
+  colors: unknown;
+  themes: unknown;
+  lockscreen: unknown;
+  startMenu: unknown;
+  fonts: unknown;
 };
 
 export type Applications = {
   installedApplications: Array<ApplicationMetaData>;
   defaultApplications: { [key in MimeTypes]: string };
-  startupApplications: any;
+  startupApplications: unknown;
 };
 
-export type Accounts = Array<User>;
+export type Accounts = { [key in string]: User };
 
 export type OSSettings = {
   sound: Sound;
